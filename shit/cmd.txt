@@ -1,1 +1,1 @@
-bot3.home;reset;load "startup";run
+bot0.home;reset;load "startup";run
