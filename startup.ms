@@ -1,13 +1,13 @@
 load "startup"
 import "CoreUtils"
 ensureImport "bot0"
-ensureImport "bot3"
+ensureImport "bot1"
 clear
 
 if me.name=="Farmtronics Bot 0" then 
     bot0.shit
-else if me.name=="Farmtronics Bot 3" then
-    if world.weather!="raining" then wait 0.1
+else if me.name=="bot1" then
+    bot1.DailyTask
 else
     field1=function()
         Plot={"x1":53,"x2":74,"y":22}
