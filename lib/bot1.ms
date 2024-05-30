@@ -7,11 +7,10 @@ ensureImport "tools"
 watered=0
 check_harvest=0
 
-StartPos=map.Field2PosBotStart
 WaterPos=map.WaterSource
 width=map.Field2Width
 height=map.Field2Height
-
+home=function();move.goTo(map.Field2PosBotStart.x,map.Field2PosBotStart.y);end function
 PlowFarm=function(width,height)
     width=width-1
     move.faceDir(move.south)
@@ -68,7 +67,7 @@ WaterFarm=function(width,height)
         for y in range(0,height)
             if y!=height then
                 move.faceDir(move.south)
-                tools.water
+                if me.ahead.dry==1 and me.ahead.crop!=null and me.ahead!=null then tools.water
                 move.moveDir(move.south)
             else
                 for i in range(0,height-1)
@@ -84,6 +83,7 @@ WaterFarm=function(width,height)
             end for
         end if
     end for
+    home
 end function
 
 HarvestFarm=function(width,height)
@@ -119,12 +119,15 @@ DailyTask=function(width,height)
         for y in range(0,height)
             if y!=height then
                 move.faceDir(move.south)
-                move.moveDir(move.south)
-                if me.ahead.crop.harvestable==1 then 
+                print me.ahead.dry
+                if me.ahead.crop.harvestable and me.ahead.crop!=null and me.ahead!=null ==1 then
                     tools.harvest
                     move.moveDir(move.south)
-                else if me.ahead.dry==1 then
+                else if me.ahead.dry==1 and me.ahead.crop!=null and me.ahead!=null  then
+                    print "Watering Tile Ahead"
                     tools.water
+                    move.moveDir(move.south)
+                else
                     move.moveDir(move.south)
                 end if
             else
@@ -141,5 +144,5 @@ DailyTask=function(width,height)
             end for
         end if
     end for
-    move.goTo(StartPos.x,StartPos.y)
 end function
+
