@@ -119,8 +119,8 @@ DailyTask=function(width,height)
         for y in range(0,height)
             if y!=height then
                 move.faceDir(move.south)
-                print me.ahead.dry
                 if me.ahead.crop.harvestable and me.ahead.crop!=null and me.ahead!=null ==1 then
+                    print "Harvesting Tile Ahead"
                     tools.harvest
                     move.moveDir(move.south)
                 else if me.ahead.dry==1 and me.ahead.crop!=null and me.ahead!=null  then
@@ -130,6 +130,8 @@ DailyTask=function(width,height)
                 else
                     move.moveDir(move.south)
                 end if
+            else if me.ahead==null and input("Plow Tile Ahead")=="yes" then
+                tools.plow
             else
                 for i in range(0,height-1)
                     move.moveDir(move.north)

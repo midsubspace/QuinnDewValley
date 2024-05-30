@@ -8,6 +8,7 @@ if me.name=="Farmtronics Bot 0" then
     bot0.shit
 else if me.name=="bot1" then
     bot1.DailyTask(map.Field2Width,map.Field2Height)
+    bot1.home
 else
     field1=function()
         Plot={"x1":53,"x2":74,"y":22}
