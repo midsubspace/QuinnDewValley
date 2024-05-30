@@ -2,7 +2,7 @@
 start=input("Starting Cords: x,y: ")
 x1=start.split(",")[0].val
 y1=start.split(",")[1].val
-stop=input("Ending Cords:x,1: ")
+stop=input("Ending Cords:x,y: ")
 x2=stop.split(",")[0].val
 y2=stop.split(",")[1].val
 
