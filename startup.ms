@@ -9,6 +9,8 @@ if me.name=="Farmtronics Bot 0" then
 else if me.name=="bot1" then
     bot1.DailyTask(map.Field2Width,map.Field2Height)
     bot1.home
+    me.statusColor=colors.colors.white
+    world.chat("Done With My Chores!")
 else
     field1=function()
         Plot={"x1":53,"x2":74,"y":22}
