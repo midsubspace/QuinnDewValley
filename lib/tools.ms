@@ -20,7 +20,7 @@ plant=function(seedname)
     print "Planted "+seedname
 end function
 water=function()
-    for i in inventory
+    for i in me.inventory
         if i=={} then continue
         if  i.name=="Watering Can" or i.name=="Cooper Watering Can" or i.name=="Steel Watering Can" or i.name=="Gold Watering Can" or i.name=="Iridium Watering Can" then
             if i.waterLeft==0 then
@@ -46,7 +46,7 @@ water=function()
 end function
 harvest=function()
     if me.ahead.crop.name=="Wheat" then 
-        for i in inventory
+        for i in me.inventory
             if i=={} then continue
             if  i.name=="Scythe" or i.name=="Cooper Scythe" or i.name=="Steel Scythe" or i.name=="Gold Scythe" or i.name=="Iridium Scythe" then
                 me.select(i)
