@@ -131,10 +131,6 @@ DailyTask=function(width,height)
                 else
                     move.moveDir(move.south)
                 end if
-            else if me.ahead==null then
-                me.statusColor=colors.colors.red
-                if input("Plow Tile Ahead")=="yes" then tools.plow
-                me.statusColor=colors.colors.green
             else
                 for i in range(0,height-1)
                     move.moveDir(move.north)
