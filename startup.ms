@@ -20,10 +20,10 @@ else
                 if t.crop then print t.crop.name+" "+t.crop.phase+"/"+t.crop.maxPhase+" "+water
         end for
     end function
-    print "Welcome Quinn"
-    print "Current Season: "+world.seasonName
-    print world.dayOfSeason+"/28("+floor((world.dayOfSeason/28)*100)+"%)"
-    print 28-world.dayOfSeason+" Days Left"
-    input("Press any Key to continue")
-    field1
+    //print "Welcome Quinn"
+    //print "Current Season: "+world.seasonName
+    //print world.dayOfSeason+"/28("+floor((world.dayOfSeason/28)*100)+"%)"
+    //print 28-world.dayOfSeason+" Days Left"
+    //input("Press any Key to continue")
+    //field1
 end if
