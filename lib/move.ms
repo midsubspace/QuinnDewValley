@@ -22,6 +22,11 @@ faceLoc = function(x,y)
    faceDir target
 end function
 
+moveDir=function(dir)
+  faceDir(dir)
+  me.forward
+end function
+
 goTo = function(x,y)
   print "Going to " + x + ", " + y
   while me.position.x != x or me.position.y != y
