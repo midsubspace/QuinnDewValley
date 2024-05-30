@@ -20,10 +20,9 @@ plant=function(seedname)
     print "Planted "+seedname
 end function
 water=function()
-    me.select("Watering Can")
-    for i in me.inventory
+    for i in inventory
         if i=={} then continue
-        if i.name=="Watering Can" then
+        if  i.name=="Watering Can" or i.name=="Cooper Watering Can" or i.name=="Steel Watering Can" or i.name=="Gold Watering Can" or i.name=="Iridium Watering Can" then
             if i.waterLeft==0 then
                 me.statusColor=colors.colors.blue
                 old_pos={"x":me.position.x,"y":me.position.y}
@@ -36,13 +35,27 @@ water=function()
                 move.faceDir(move.south)
                 me.statusColor=colors.colors.green
             end if
+            me.select(i)
+        else
+            me.statusColor=colors.colors.red
+            world.chat("I Need a Watering Can!")
+            input("Press Any Key to Continue")
         end if
     end for
     me.useTool
 end function
 harvest=function()
     if me.ahead.crop.name=="Wheat" then 
-        me.select("Scythe")
+        for i in inventory
+            if i=={} then continue
+            if  i.name=="Scythe" or i.name=="Cooper Scythe" or i.name=="Steel Scythe" or i.name=="Gold Scythe" or i.name=="Iridium Scythe" then
+                me.select(i)
+            else
+                me.statusColor=colors.colors.red
+                world.chat("I Need a Scythe!")
+                input("Press Any Key to Continue")
+            end if
+        end for
         me.useTool
     else
         me.harvest
