@@ -20,6 +20,7 @@ plant=function(seedname)
     print "Planted "+seedname
 end function
 water=function()
+    found=0
     for i in me.inventory
         if i=={} then continue
         if  i.name=="Watering Can" or i.name=="Cooper Watering Can" or i.name=="Steel Watering Can" or i.name=="Gold Watering Can" or i.name=="Iridium Watering Can" then
@@ -37,11 +38,6 @@ water=function()
             end if
             me.select(i.name)
             found=1
-        end if
-        if found==0 then
-            me.statusColor=colors.colors.red
-            world.chat("I Need a Watering Can!")
-            input("Press Any Key to Continue")
         end if
     end for
     me.useTool
@@ -72,12 +68,16 @@ plow=function()
 end function
 unload=function()
     keep=["Watering Can","Hoe","Parsnip Seeds","Axe","Pickaxe","Scythe","Wheat Seeds"]
+    types=["Cooper","Steel","Gold","Iridium"]
     old_pos={"x":me.position.x,"y":me.position.y}
     chest_pos={"x":71,"y":20}
     move.goTo(chest_pos.x,chest_pos.y)
     move.faceDir(move.east)
     for i in me.inventory
         if i=={} then continue
+        if i.name.split(" ").len>1 then
+            if types.indexOf(i.name.split(" ")[0])!=null then continue
+        end if
         if keep.indexOf(i.name)==null then 
             me.select(i.name)
             me.placeItem
