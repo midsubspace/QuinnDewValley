@@ -32,4 +32,4 @@ colors = {
     "khaki": "#F0E68C",
     "lightcoral": "#F08080",
   }
-  world.chat "Loaded Colors Lib"
+  print "Loaded Colors Lib"

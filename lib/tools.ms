@@ -64,4 +64,4 @@ unload=function()
     move.goTo(old_pos.x,old_pos.y)
     move.faceDir(move.south)
 end function
-world.chat "Loaded Tools Lib"
+print "Loaded Tools Lib"

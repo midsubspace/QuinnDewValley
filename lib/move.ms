@@ -32,4 +32,4 @@ goTo = function(x,y)
   end while
 end function
 
-world.chat "Loaded Move Lib"
+print "Loaded Move Lib"

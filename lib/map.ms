@@ -22,4 +22,4 @@ WaterSource={"x":72,"y":27}
 
 
 
-world.chat "Loaded Map Lib"
+print "Loaded Map Lib"

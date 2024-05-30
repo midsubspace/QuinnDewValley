@@ -4,4 +4,4 @@ globals.ensureImport = function(moduleName)
 	import moduleName
 	globals[moduleName] = locals[moduleName]
 end function
-world.chat "Loaded CoreUtils Lib"
+print "Loaded CoreUtils Lib"
