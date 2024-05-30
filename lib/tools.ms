@@ -41,14 +41,19 @@ water=function()
     me.useTool
 end function
 harvest=function()
-    me.harvest
+    if me.ahead.crop.name=="Wheat" then 
+        me.select("Scythe")
+        me.useTool
+    else
+        me.harvest
+    end if
 end function
 plow=function()
     me.select("Hoe")
     if me.ahead==null then me.useTool
 end function
 unload=function()
-    keep=["Watering Can","Hoe","Parsnip Seeds","Axe","Pickaxe","Scythe"]
+    keep=["Watering Can","Hoe","Parsnip Seeds","Axe","Pickaxe","Scythe","Wheat Seeds"]
     old_pos={"x":me.position.x,"y":me.position.y}
     chest_pos={"x":71,"y":20}
     move.goTo(chest_pos.x,chest_pos.y)
