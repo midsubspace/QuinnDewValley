@@ -35,8 +35,10 @@ water=function()
                 move.faceDir(move.south)
                 me.statusColor=colors.colors.green
             end if
-            me.select(i)
-        else
+            me.select(i.name)
+            found=1
+        end if
+        if found==0 then
             me.statusColor=colors.colors.red
             world.chat("I Need a Watering Can!")
             input("Press Any Key to Continue")
@@ -45,17 +47,20 @@ water=function()
     me.useTool
 end function
 harvest=function()
+    found=0
     if me.ahead.crop.name=="Wheat" then 
         for i in me.inventory
             if i=={} then continue
             if  i.name=="Scythe" or i.name=="Cooper Scythe" or i.name=="Steel Scythe" or i.name=="Gold Scythe" or i.name=="Iridium Scythe" then
-                me.select(i)
-            else
-                me.statusColor=colors.colors.red
-                world.chat("I Need a Scythe!")
-                input("Press Any Key to Continue")
+                me.select(i.name)
+                found=1
             end if
         end for
+        if found==0 then
+            me.statusColor=colors.colors.red
+            world.chat("I Need a Scythe!")
+            input("Press Any Key to Continue")
+        end if
         me.useTool
     else
         me.harvest
