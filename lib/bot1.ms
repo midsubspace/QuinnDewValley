@@ -112,18 +112,21 @@ HarvestFarm=function(width,height)
 end function
 
 DailyTask=function(width,height)
+    print "Doing My Daily Chores"
     width=width-1
     move.faceDir(move.south)
     for x in range(0,width)
         for y in range(0,height)
             if y!=height then
                 move.faceDir(move.south)
+                move.moveDir(move.south)
                 if me.ahead.crop.harvestable==1 then 
                     tools.harvest
+                    move.moveDir(move.south)
                 else if me.ahead.dry==1 then
                     tools.water
-                end if    
-                move.moveDir(move.south)
+                    move.moveDir(move.south)
+                end if
             else
                 for i in range(0,height-1)
                     move.moveDir(move.north)

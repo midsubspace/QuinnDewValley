@@ -6,7 +6,7 @@ ensureImport "map"
 FieldPos=map.FieldPos1
 shit=function
     me.statusColor=colors.colors.green
-    FieldPos=map.FieldPos
+    FieldPos=map.FieldPos1
     while me.ahead==null
         print "Ahead=null"
         yield
