@@ -4,10 +4,8 @@ south=2
 west=3
 
 faceDir = function(dir)
-  dir = dir % 4
-  if dir < 0 then dir = dir + 4 
   while me.facing != dir 
-    me.left 
+    me.right 
    end while 
   end function 
 
